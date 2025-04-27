@@ -38,13 +38,14 @@ const characterNames = [
     const randomCharacter = characterNames[randomIndex];
     document.getElementById('random-character').textContent = randomCharacter;
   }
-  // Fullscreen toggle on header click
-  document.querySelector('header h1').addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
+  // Fullscreen toggle on clicking the h1
+const heading = document.querySelector('h1');
+heading.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
     }
-  });
+  }
+});

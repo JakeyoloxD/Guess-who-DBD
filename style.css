@@ -10,40 +10,32 @@ body {
   font-family: 'Arial', sans-serif;
   color: white;
   background-color: #1b1b1b;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Header for full screen toggle */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  text-align: center;
-  padding: 10px 0;
-  z-index: 1000;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+/* Title */
+h1 {
+  font-size: 2.5em;
   color: #ff3333;
   text-shadow: 2px 2px 8px #000;
+  margin-bottom: 20px;
+  text-align: center;
   cursor: pointer;
-  user-select: none;
+  user-select: none; /* Disable text selection */
 }
 
-/* Main container for the grid */
-.container {
-  margin-top: 80px; /* Push below header */
-  width: 95%;
-  max-width: 1800px;
+/* Grid setup */
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
+  width: 95%;
+  max-width: 1800px;
+  margin-top: 20px;
+  animation: fadeIn 1s ease;
 }
 
-/* Each card */
+/* Card setup */
 .card {
   background: rgba(0, 0, 0, 0.85);
   border: 2px solid #8B0000;
@@ -82,9 +74,17 @@ header h1 {
   transition: all 0.4s ease;
 }
 
-/* Button styling */
+/* Button section */
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Buttons */
 button {
-  margin: 30px 0;
   padding: 12px 24px;
   background-color: #8B0000;
   border: none;
@@ -104,31 +104,34 @@ button:active {
   background-color: #a10000;
 }
 
-/* Full screen fallback broken image styling (optional) */
-#broken-image {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 1000;
+/* Random character text */
+#random-character {
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ff3333;
+  text-align: center;
 }
 
-/* Small devices: tighten spacing */
+/* Animation for grid fade in */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Small screen (mobile) responsiveness */
 @media (max-width: 600px) {
-  header h1 {
-      font-size: 2rem;
+  h1 {
+    font-size: 2rem;
   }
-
+  #random-character {
+    font-size: 1.2rem;
+  }
   .card p {
-      font-size: 0.9em;
+    font-size: 0.9em;
   }
-
   button {
-      font-size: 1rem;
-      padding: 10px 20px;
+    font-size: 1rem;
+    padding: 10px 20px;
   }
 }
-/* Test */
