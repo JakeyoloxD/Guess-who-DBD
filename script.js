@@ -38,3 +38,13 @@ const characterNames = [
     const randomCharacter = characterNames[randomIndex];
     document.getElementById('random-character').textContent = randomCharacter;
   }
+  // Fullscreen toggle on header click
+  document.querySelector('header h1').addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  });

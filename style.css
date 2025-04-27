@@ -1,81 +1,133 @@
+/* General body setup */
 body {
-    margin: 0;
-    padding: 20px;
-    background: url('https://assets.deadbydaylight.com/Blood_Event_Web_Screenshots_POSTPROD_Lobby01_c8f55eb68b.png') center/cover no-repeat fixed;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #1b1b1b;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: url('https://assets.deadbydaylight.com/Blood_Event_Web_Screenshots_POSTPROD_Lobby01_c8f55eb68b.png') center/cover no-repeat fixed;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  background-color: #1b1b1b;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* Header for full screen toggle */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #ff3333;
+  text-shadow: 2px 2px 8px #000;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Main container for the grid */
+.container {
+  margin-top: 80px; /* Push below header */
+  width: 95%;
+  max-width: 1800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+/* Each card */
+.card {
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #8B0000;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #8B0000;
+}
+
+.card p {
+  margin: 6px 0 0 0;
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+}
+
+/* Card hover */
+.card:hover {
+  box-shadow: 0 0 15px 5px #8B0000;
+  transform: scale(1.05);
+}
+
+/* Faded card */
+.card.fade {
+  opacity: 0.25;
+  filter: grayscale(100%);
+  transform: scale(0.95);
+  transition: all 0.4s ease;
+}
+
+/* Button styling */
+button {
+  margin: 30px 0;
+  padding: 12px 24px;
+  background-color: #8B0000;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #660000;
+}
+
+button:active {
+  background-color: #a10000;
+}
+
+/* Full screen fallback broken image styling (optional) */
+#broken-image {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1000;
+}
+
+/* Small devices: tighten spacing */
+@media (max-width: 600px) {
+  header h1 {
+      font-size: 2rem;
   }
-  
-  h1 {
-    font-size: 2.5em;
-    color: #ff3333;
-    text-shadow: 2px 2px 8px #000;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(17, 1fr);
-    gap: 10px;
-    width: 100%;
-    max-width: 1800px;
-  }
-  
-  .card {
-    background: rgba(0, 0, 0, 0.85);
-    border: 2px solid #8B0000;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 5px;
-  }
-  
-  .card img {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #8B0000;
-  }
-  
+
   .card p {
-    margin: 6px 0 0 0;
-    font-weight: bold;
-    font-size: 1em;
-    color: white;
+      font-size: 0.9em;
   }
-  
-  .card:hover {
-    box-shadow: 0 0 15px 5px #8B0000;
-    transform: scale(1.05);
-  }
-  
-  .card.fade {
-    opacity: 0.25;
-    filter: grayscale(100%);
-    transform: scale(0.95);
-    transition: all 0.4s ease;
-  }
-  
+
   button {
-    margin-top: 30px;
-    padding: 12px 24px;
-    background-color: #8B0000;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s;
+      font-size: 1rem;
+      padding: 10px 20px;
   }
-  
-  button:hover {
-    background-color: #660000;
-  }
-  
+}
